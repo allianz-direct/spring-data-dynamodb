@@ -15,8 +15,9 @@
  */
 package org.socialsignin.spring.data.dynamodb.config;
 
+import java.time.LocalDateTime;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import org.joda.time.DateTime;
 import org.junit.Test;
 import org.socialsignin.spring.data.dynamodb.mapping.DynamoDBMappingContext;
 import org.socialsignin.spring.data.dynamodb.mapping.event.BeforeSaveEvent;
@@ -69,11 +70,11 @@ public class AuditingIntegrationTests {
 		@Id
 		Long id;
 		@CreatedDate
-		DateTime created;
-		DateTime modified;
+		LocalDateTime created;
+		LocalDateTime modified;
 
 		@LastModifiedDate
-		public DateTime getModified() {
+		public LocalDateTime getModified() {
 			return modified;
 		}
 	}

@@ -159,7 +159,7 @@ public @interface EnableDynamoDBRepositories {
 	String dynamoDBMapperRef() default "";
 
 	/**
-	 * Returns the {@link javax.validation.Validator } reference to be used for to
+	 * Returns the {@link jakarta.validation.Validator } reference to be used for to
 	 * validate DynamoDB entities
 	 *
 	 * @return The

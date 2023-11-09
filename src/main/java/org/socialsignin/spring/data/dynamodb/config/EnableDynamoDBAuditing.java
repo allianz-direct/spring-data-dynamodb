@@ -57,7 +57,7 @@ public @interface EnableDynamoDBAuditing {
 	/**
 	 * @return Configures a
 	 *         {@link org.springframework.data.auditing.DateTimeProvider} bean name
-	 *         that allows customizing the {@link org.joda.time.DateTime} to be used
+	 *         that allows customizing the {@link java.time.LocalDateTime} to be used
 	 *         for setting creation and modification dates.
 	 */
 	String dateTimeProviderRef() default "";

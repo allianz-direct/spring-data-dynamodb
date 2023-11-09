@@ -41,9 +41,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
+import static org.junit.internal.matchers.ThrowableMessageMatcher.hasMessage;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyIterable;
 import static org.mockito.ArgumentMatchers.eq;
@@ -266,8 +268,9 @@ public class SimpleDynamoDBCrudRepositoryTest {
 
 		expectedException.expect(BatchWriteException.class);
 		expectedException.expectMessage(
-				"Processing of entities failed!; nested exception is java.lang.Exception: First exception");
+				"Processing of entities failed!");
 
+		expectedException.expectCause(hasMessage(equalTo("First exception")));
 		repoForEntityWithOnlyHashKey.saveAll(entities);
 	}
 }
